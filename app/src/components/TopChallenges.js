@@ -11,7 +11,7 @@ export default function TopChallenges() {
     const fetchTopChallenges = async () => {
       try {
         const baseUrl = process.env.REACT_APP_API_BASE_URL
-        const res = await fetch(`${baseUrl}/challenge/random`)
+      const res = await fetch(`${baseUrl}/challenge/top`)
         const data = await res.json()
         setChallenges(data)
       } catch (error) {
