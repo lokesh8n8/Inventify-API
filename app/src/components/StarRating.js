@@ -26,7 +26,7 @@ export default function StarRating({ challengeId, avgRating = 0 }) {
     setSelected(rating);
 
     try {
-      await fetch(`http://localhost:4000/challenge/${challengeId}/rate`, {
+      await fetch(`${process.env.REACT_APP_API_BASE_URL}/challenge/${challengeId}/rate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ rating }),

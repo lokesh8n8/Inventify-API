@@ -10,7 +10,8 @@ export default function TopChallenges() {
   useEffect(() => {
     const fetchTopChallenges = async () => {
       try {
-        const res = await fetch("http://localhost:4000/challenge/top")
+        const baseUrl = process.env.REACT_APP_API_BASE_URL
+        const res = await fetch(`${baseUrl}/challenge/random`)
         const data = await res.json()
         setChallenges(data)
       } catch (error) {
