@@ -98,6 +98,82 @@ See [`api.md`](api.md) for full documentation and sample responses.
 
 ---
 
+## 🧪 Testing Guide
+
+This project includes comprehensive testing across different layers of the application using modern JavaScript testing tools. The test suite is divided into:
+
+- **Unit Tests**: Validate individual functions in isolation.
+- **Integration Tests**: Test the interaction between models, controllers, and the database using an in-memory MongoDB instance.
+- **API Contract Tests**: Verify the behavior and response structure of RESTful API endpoints.
+
+### 📚 Tools & Libraries Used
+
+| Purpose              | Tool/Library              |
+|----------------------|---------------------------|
+| Test Runner          | [Jest](https://jestjs.io) |
+| HTTP Testing         | [Supertest](https://github.com/ladjs/supertest) |
+| In-Memory Database   | [mongodb-memory-server](https://github.com/nodkz/mongodb-memory-server) |
+| Code Coverage        | Built-in Jest Coverage    |
+
+---
+
+### 🚀 Running Tests
+
+To run all tests (unit, integration, and API tests):
+
+```bash
+npm test
+```
+
+To run a specific test file (e.g., unit tests):
+
+```bash
+npx jest tests/unit/challengeController.unit.test.js
+```
+
+To view code coverage results in the terminal and open an HTML report:
+
+```bash
+npm test -- --coverage
+```
+
+The HTML report will be generated in the `coverage/lcov-report/index.html` file.
+
+---
+
+### ✅ Test Output Example
+
+Below is an example of the test output with coverage:
+
+```
+PASS  tests/unit/challengeController.unit.test.js
+PASS  tests/integration/full.integration.test.js
+PASS  tests/api/challenge.api.test.js
+
+Test Suites: 3 passed, 3 total
+Tests:       33 passed, 33 total
+Snapshots:   0 total
+Time:        5.221 s
+
+------------------------------|---------|----------|---------|---------|------------------- 
+File                          | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------------|---------|----------|---------|---------|------------------- 
+All files                     |   92.77 |    77.77 |   72.72 |   92.59 |                   
+ controllers/                 |     100 |    92.85 |     100 |     100 |                   
+ models/                      |     100 |      100 |     100 |     100 |                   
+ routes/                      |     100 |      100 |     100 |     100 |                   
+ server.js                    |    62.5 |       25 |       0 |    62.5 | 17-26             
+------------------------------|---------|----------|---------|---------|------------------- 
+```
+---
+
+### 📸 Coverage Screenshot
+
+![Test Coverage Screenshot](![Image](https://github.com/user-attachments/assets/bc5c3b4f-69cd-4dfb-ac56-ea0d81ec8dfd))
+
+
+---
+
 ## 📄 More
 
 - API documentation: [api.md](api.md)
@@ -106,8 +182,5 @@ See [`api.md`](api.md) for full documentation and sample responses.
 
 ---
 
-<center>
 
 **Enjoy building and rating challenges!**
-
-</center>
