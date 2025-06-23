@@ -185,4 +185,3 @@ All files                     |   92.77 |    77.77 |   72.72 |   92.59 |
 
 **Enjoy building and rating challenges!**
 
-</center>
