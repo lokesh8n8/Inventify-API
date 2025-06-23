@@ -1,5 +1,7 @@
 const Challenge = require('../models/Challenge');
 const Rating = require('../models/Rating');
+const mongoose = require('mongoose');
+
 
 exports.getRandomChallenge = async (req, res) => {
   try {
@@ -79,8 +81,12 @@ exports.getTopRatedChallenges = async (req, res) => {
 };
 
 exports.getTags = async (req, res) => {
-  const tags = await Challenge.distinct("tags");
-  res.json(tags);
+  try {
+    const tags = await Challenge.distinct("tags");
+    res.json(tags);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 exports.getChallengesByTag = async (req, res) => {
@@ -98,17 +104,22 @@ exports.getAllChallenges = async (req, res) => {
 };
 
 exports.rateChallenge = async (req, res) => {
-  const { rating, comment } = req.body;
-  const challengeId = req.params.id;
+  try {
+    const { rating, comment } = req.body;
+    const challengeId = req.params.id;
 
-  const newRating = await Rating.create({
-    challengeId,
-    rating,
-    comment
-  });
+    const newRating = await Rating.create({
+      challengeId,
+      rating,
+      comment
+    });
 
-  res.json(newRating);
+    res.json(newRating);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
+
 
 exports.getChallengeRatings = async (req, res) => {
   const challengeId = req.params.id;
