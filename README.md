@@ -39,7 +39,7 @@ See [`api.md`](api.md) for full documentation and sample responses.
 
 - **Database:** MongoDB Atlas (cloud-hosted)
 - **Integration:**  
-  - The server uses [Mongoose](models/Challenge.js) to define schemas for `Challenge` and `Rating`.
+  - The server uses [Mongoose](https://mongoosejs.com/) to define schemas for `Challenge` and `Rating`.
   - Connection string is stored in `.env` as `MONGO_URI`.
   - Models are in [`models/Challenge.js`](models/Challenge.js) and [`models/Rating.js`](models/Rating.js).
 
@@ -184,3 +184,5 @@ All files                     |   92.77 |    77.77 |   72.72 |   92.59 |
 
 
 **Enjoy building and rating challenges!**
+
+</center>
