@@ -172,8 +172,53 @@ All files                     |   92.77 |    77.77 |   72.72 |   92.59 |
 ![image](https://github.com/user-attachments/assets/b2e3371c-c05d-435b-bae1-e03682500412)
 
 
+---
+
+## ✅ Keploy API Test Integration
+
+This project integrates [Keploy](https://keploy.io) to enable seamless API test generation and execution. Keploy captures real user traffic and converts it into deterministic test cases which are then run during development and CI/CD workflows.
 
 ---
+
+## 🔄 GitHub Actions CI/CD Integration
+
+Keploy has been integrated with GitHub Actions to run API test suites during the CI process.
+
+### Highlights:
+- Automatically runs test suites during each push.
+- Validates core application logic before merging.
+- Reduces risk of regression in production deployments.
+
+### Required GitHub Secrets:
+- `MONGO_URI`: Your MongoDB connection string
+- `KEPLOY_API_KEY`: API key from Keploy Dashboard
+
+---
+
+## 🧩 Keploy Cloud Test Result
+
+Track test cases, coverage, and results on the [Keploy Cloud Dashboard](https://app.keploy.io).
+
+![image](https://github.com/user-attachments/assets/ec7c1a68-6a28-4a0a-9a2b-1ba7edb7b60a)
+
+
+---
+
+## ✅ CI Test Run Evidence (GitHub Actions)
+
+![image](https://github.com/user-attachments/assets/6fdc5ef8-7195-41f7-9421-673685f086ee)
+ 
+
+---
+
+## 📚 Useful Links
+
+- [Keploy Docs](https://docs.keploy.io/)
+- [Keploy Cloud Dashboard](https://app.keploy.io/)
+- [GitHub Actions Docs](https://docs.github.com/en/actions)
+
+---
+
 
 ## 📄 More
 
