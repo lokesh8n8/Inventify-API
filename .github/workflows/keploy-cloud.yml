@@ -2,34 +2,38 @@ name: keploy-cloud-test
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
 
 jobs:
-  keploy-test:
+  test:
     runs-on: ubuntu-latest
 
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      KEPLOY_API_KEY: ${{ secrets.KEPLOY_API_KEY }}
+
     steps:
-      - name: Checkout Code
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: "18"
 
-      - name: Install Dependencies
-        run: npm ci
+      - name: Install dependencies
+        run: npm install
 
-      - name: Start Backend
+      - name: Start backend
         run: |
-          npm start &
+          nohup npm start &
           sleep 10
 
       - name: Install Keploy CLI
-        run: curl --silent -L https://keploy.io/ent/install.sh | bash
+        run: |
+          curl --silent -L https://keploy.io/ent/install.sh | bash
 
-      - name: Run Keploy Cloud Test Suite
+      - name: Run Keploy Test Suite
         run: |
           export KEPLOY_API_KEY=EqqD53lFMapQFvsW8g== && keploy test-suite --app=6ef74372-a07c-4dc8-ad26-0e2502d3f373 --base-path http://localhost:4000 --cloud
